@@ -16,11 +16,10 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun SplashScreen(onContinue: () -> Unit) {
-
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1F1B2E)),
+            .background(Color(0xFF1F1B2E)),   // dark purple
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -33,13 +32,15 @@ fun SplashScreen(onContinue: () -> Unit) {
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
             Button(
                 onClick = onContinue,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF7E86A))
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFF7E86A)  // yellow
+                )
             ) {
-                Text("Continue", color = Color.Black)
+                Text("Continue", color = Color.Black, fontWeight = FontWeight.Bold)
             }
         }
     }

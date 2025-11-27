@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun LoginScreen(onLoginClick: () -> Unit) {   // <--- added this
+fun LoginScreen(onLoginClick: () -> Unit) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -35,7 +35,7 @@ fun LoginScreen(onLoginClick: () -> Unit) {   // <--- added this
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // ---------------- EMAIL FIELD ----------------
+            // EMAIL
             TextField(
                 value = email,
                 onValueChange = { email = it },
@@ -54,7 +54,7 @@ fun LoginScreen(onLoginClick: () -> Unit) {   // <--- added this
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // ---------------- PASSWORD FIELD ----------------
+            // PASSWORD
             TextField(
                 value = password,
                 onValueChange = { password = it },
@@ -73,19 +73,15 @@ fun LoginScreen(onLoginClick: () -> Unit) {   // <--- added this
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // ---------------- LOGIN BUTTON ----------------
+            // LOGIN BUTTON
             Button(
-                onClick = { onLoginClick() },   // <--- navigation happens here
+                onClick = { onLoginClick() },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFF7E86A)
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(
-                    text = "Login",
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold
-                )
+                Text("Login", color = Color.Black, fontWeight = FontWeight.Bold)
             }
 
             Spacer(modifier = Modifier.height(12.dp))
