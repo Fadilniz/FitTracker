@@ -2,28 +2,45 @@ package assignment2.st078050.fittracker
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(onContinue: () -> Unit) {
+
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1F1B2E)), // Dark purple background
+            .background(Color(0xFF1F1B2E)),
         contentAlignment = Alignment.Center
     ) {
-        Text(
-            text = "Start your\nFitness Journey",
-            color = Color.White,
-            fontSize = 28.sp,
-            fontWeight = FontWeight.Bold
-        )
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+
+            Text(
+                text = "Start your\nFitness Journey",
+                color = Color.White,
+                fontSize = 26.sp,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold
+            )
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            Button(
+                onClick = onContinue,
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF7E86A))
+            ) {
+                Text("Continue", color = Color.Black)
+            }
+        }
     }
 }

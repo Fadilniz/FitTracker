@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(onLoginClick: () -> Unit) {   // <--- added this
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -35,7 +35,7 @@ fun LoginScreen() {
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // ------- EMAIL FIELD -------
+            // ---------------- EMAIL FIELD ----------------
             TextField(
                 value = email,
                 onValueChange = { email = it },
@@ -47,14 +47,14 @@ fun LoginScreen() {
                     unfocusedTextColor = Color.White,
                     cursorColor = Color.White,
                     focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // ------- PASSWORD FIELD -------
+            // ---------------- PASSWORD FIELD ----------------
             TextField(
                 value = password,
                 onValueChange = { password = it },
@@ -66,21 +66,26 @@ fun LoginScreen() {
                     unfocusedTextColor = Color.White,
                     cursorColor = Color.White,
                     focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
                 ),
                 modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(20.dp))
 
+            // ---------------- LOGIN BUTTON ----------------
             Button(
-                onClick = {},
+                onClick = { onLoginClick() },   // <--- navigation happens here
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFF7E86A)
                 ),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Login", color = Color.Black, fontWeight = FontWeight.Bold)
+                Text(
+                    text = "Login",
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold
+                )
             }
 
             Spacer(modifier = Modifier.height(12.dp))
